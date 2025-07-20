@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommender System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        input, select {
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px #ccc;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Recommendation System</h1>
+
+    <form method="post">
+        <label>Enter User ID (for CF & Hybrid) or Product Title (for Content-Based):</label><br>
+        <input type="text" name="user_id" required><br>
+
+        <label>Select Recommendation Method:</label><br>
+        <select name="method">
+            <option value="collaborative">Collaborative Filtering</option>
+            <option value="content">Content-Based Filtering</option>
+            <option value="hybrid">Hybrid Recommendation</option>
+        </select><br>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if recommendations %}
+        <h2>🎯 Top Recommendations</h2>
+        <table>
+            <tr>
+                <th>Product Title</th>
+                <th>Price</th>
+            </tr>
+            {% for rec in recommendations %}
+                <tr>
+                    <td>{{ rec.title_y if rec.title_y else rec }}</td>
+                    <td>
+                        {% if rec.price is defined %}
+                            ${{ "%.2f"|format(rec.price) }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
