@@ -36,7 +36,7 @@ It includes a full pipeline from data cleaning and modeling to deploying a web a
 ---
 
 ## 📁 Project Structure
----
+'''
 ط
 HybridRec-System/
 │
@@ -68,7 +68,7 @@ HybridRec-System/
 
 
 
----
+'''
 
 ## 🚀 How to Run the Project
 
