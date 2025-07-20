@@ -39,30 +39,32 @@ It includes a full pipeline from data cleaning and modeling to deploying a web a
 
 HybridRec-System/
 │
-├── app.py ← Main Flask app
-├── data/ ← Raw Amazon review & metadata
-│ ├── Software.jsonl.gz
-│ └── meta_Software.jsonl.gz
+├── app.py                   ← Main Flask app
 │
-├── models/ ← Trained models and preprocessed data
-│ ├── collaborative_model.pkl
-│ ├── tfidf_vectorizer.pkl
-│ ├── tfidf_matrix.npz
-│ ├── faiss_index.index
-│ ├── product_ids.pkl
-│ └── ratings_subset.csv
+├── data/                    ← Raw Amazon review & metadata
+│   ├── Software.jsonl.gz
+│   └── meta_Software.jsonl.gz
 │
-├── Notebooks/ ← EDA and model notebooks
-│ ├── Data_Cleaning_and_EDA.ipynb
-│ ├── Collabrative_Filtring.ipynb
-│ ├── Content_Based_Recommender.ipynb
-│ └── Hybrid_Recommender.ipynb
+├── models/                  ← Trained models and preprocessed data
+│   ├── collaborative_model.pkl
+│   ├── tfidf_vectorizer.pkl
+│   ├── tfidf_matrix.npz
+│   ├── faiss_index.index
+│   ├── product_ids.pkl
+│   └── ratings_subset.csv
+│
+├── Notebooks/               ← EDA and model notebooks
+│   ├── Data_Cleaning_and_EDA.ipynb
+│   ├── Collabrative_Filtring.ipynb
+│   ├── Content_Based_Recommender.ipynb
+│   └── Hybrid_Recommender.ipynb
 │
 ├── templates/
-│ └── index.html ← Web UI template
+│   └── index.html           ← Web UI template
 │
 ├── utils/
-│ └── recommenders.py ← All recommendation logic
+│   └── recommenders.py      ← All recommendation logic
+
 
 
 ---
