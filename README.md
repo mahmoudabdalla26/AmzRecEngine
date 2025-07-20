@@ -70,7 +70,7 @@ HybridRec-System/
 ## 🚀 How to Run the Project
 
 ### 1. Clone the repository
-```bash
+bash
 git clone https://github.com/your-username/HybridRec-System.git
 cd HybridRec-System
 
